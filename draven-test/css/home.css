@@ -1,0 +1,284 @@
+/* ==========================================================================
+   Draven - home page
+   ========================================================================== */
+
+
+/* ==========================================================================
+   Featured: the big card on the left, the product carousel on the right
+   ========================================================================== */
+.featured {
+  padding-top: clamp(20px, 3vw, 34px);
+}
+
+.featured__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1.04fr) minmax(0, 1fr);
+  align-items: start;
+  gap: clamp(32px, 5vw, 72px);
+}
+
+.featured__primary {
+  display: grid;
+  gap: clamp(14px, 1.6vw, 20px);
+}
+
+/* ---- Featured card ------------------------------------------------------- */
+.featured-card {
+  display: grid;
+  gap: 20px;
+  padding: clamp(24px, 3vw, 32px);
+}
+
+.featured-card__media {
+  aspect-ratio: 597 / 196;
+  box-shadow: inset 0 0 0 1px var(--line);
+}
+
+.featured-card__text {
+  font-size: 1.3rem;
+  line-height: 1.4;
+}
+
+.featured-card__button {
+  width: min(100%, 420px);
+}
+
+/* ---- Carousel column ----------------------------------------------------- */
+.featured__secondary {
+  display: grid;
+  align-content: start;
+  gap: 8px;
+  min-width: 0;
+}
+
+.featured__secondary .bats {
+  justify-self: start;
+  max-width: min(490px, 92%);
+  margin-left: clamp(16px, 6%, 56px);
+}
+
+#featured-carousel {
+  --carousel-gap: 27px;
+}
+
+#featured-carousel .carousel__item {
+  width: clamp(200px, 17vw, 230px);
+}
+
+/* ---- Product card -------------------------------------------------------- */
+.product-card {
+  position: relative;
+  display: grid;
+  align-content: start;
+  gap: 4px;
+  height: 100%;
+  padding: 24px 24px 22px;
+  background: var(--tamarind);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-m);
+  transition: transform 0.25s var(--ease), border-color 0.25s var(--ease), box-shadow 0.25s var(--ease);
+}
+
+.product-card::before {
+  content: "";
+  position: absolute;
+  inset: 5px;
+  border: 1px solid var(--line-soft);
+  border-radius: 5px;
+  pointer-events: none;
+}
+
+.product-card:hover {
+  border-color: var(--camel);
+  box-shadow: 0 16px 34px -14px rgb(0 0 0 / 0.75), 0 0 26px var(--glow-soft);
+  transform: translateY(-4px);
+}
+
+/* Show the focus ring around the whole card, not just the link text */
+.product-card:has(.stretched-link:focus-visible) {
+  outline: 2px solid var(--camel);
+  outline-offset: 3px;
+}
+
+.product-card .stretched-link:focus-visible {
+  outline: none;
+}
+
+.product-card__media {
+  --arch-fill: var(--rubine);
+  aspect-ratio: 201 / 139.5;
+  margin-bottom: 12px;
+}
+
+.product-card__title {
+  font: 600 1.1rem/1.3 var(--font-body);
+}
+
+.product-card__title a {
+  text-decoration: none;
+}
+
+.product-card__text {
+  color: var(--camel-muted);
+  font-size: 1.1rem;
+  line-height: 1.3;
+}
+
+.product-card__cta {
+  display: grid;
+  min-height: 40px;
+  margin-top: 14px;
+  place-items: center;
+  color: var(--camel);
+  font: 400 0.75rem/1 var(--font-heading);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-s);
+  transition: background-color 0.2s var(--ease), color 0.2s var(--ease);
+}
+
+.product-card:hover .product-card__cta {
+  color: var(--camel-light);
+  background: var(--rubine);
+}
+
+
+/* ==========================================================================
+   Storefront: room view on the left, collection on the right
+   ========================================================================== */
+.storefront {
+  padding-top: var(--section-gap);
+}
+
+.storefront__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 712fr) minmax(0, 728fr);
+  align-items: center;
+  gap: clamp(24px, 3vw, 40px);
+}
+
+.room {
+  margin: 0;
+}
+
+.room img {
+  width: 100%;
+  height: auto;
+}
+
+/* ---- Collection panel ---------------------------------------------------- */
+.collection {
+  display: grid;
+  gap: 10px;
+  padding: clamp(24px, 2.8vw, 36px) clamp(24px, 2.8vw, 40px) 16px;
+}
+
+/* On large screens the heading is only for screen readers (as in the wireframe) */
+.collection__title {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+#collection-carousel {
+  --carousel-gap: 31px;
+}
+
+#collection-carousel .carousel__item {
+  width: clamp(180px, 19vw, 282px);
+}
+
+.carousel-nav--end {
+  justify-content: flex-end;
+}
+
+
+/* ==========================================================================
+   Intro block (only shown on small screens, as in the mobile wireframe)
+   ========================================================================== */
+.intro {
+  display: none;
+}
+
+.intro__panel {
+  display: grid;
+  gap: 18px;
+  padding: clamp(18px, 5vw, 28px);
+}
+
+.intro__media {
+  --arch-fill: var(--rubine);
+  aspect-ratio: 356 / 292;
+}
+
+.intro__title {
+  color: var(--camel);
+  font: 400 1.05rem/1.5 var(--font-heading);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+@media (max-width: 1099px) {
+  .featured__grid,
+  .storefront__grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .featured__secondary .bats {
+    margin-left: 0;
+  }
+
+  .room {
+    max-width: 712px;
+    margin-inline: auto;
+  }
+}
+
+@media (max-width: 899px) {
+  /* The collection heading becomes visible (it is in the mobile wireframe) */
+  .collection__title {
+    position: static;
+    width: auto;
+    height: auto;
+    overflow: visible;
+    clip: auto;
+    clip-path: none;
+    white-space: normal;
+  }
+}
+
+@media (max-width: 719px) {
+  .featured-card__media {
+    aspect-ratio: 4 / 5;
+  }
+
+  .featured-card__button {
+    width: 100%;
+  }
+
+  .featured__secondary .bats {
+    max-width: 340px;
+  }
+
+  #featured-carousel .carousel__item {
+    width: min(210px, 62vw);
+  }
+
+  #collection-carousel .carousel__item {
+    width: min(240px, 66vw);
+  }
+
+  .intro {
+    display: block;
+    padding-top: var(--section-gap);
+  }
+}

@@ -1,0 +1,234 @@
+/* ==========================================================================
+   Draven - checkout page
+   ========================================================================== */
+
+.checkout {
+  padding-top: clamp(8px, 1.4vw, 16px);
+}
+
+/* Bats flying above the top-right of the panel */
+.checkout__bats {
+  max-width: min(236px, 46%);
+  height: auto;
+  margin: 0 12% 10px auto;
+}
+
+.checkout-panel {
+  padding: clamp(24px, 4vw, 56px) clamp(20px, 4.5vw, 64px) clamp(28px, 4vw, 56px);
+  border-radius: var(--radius-xl);
+}
+
+.checkout-panel::before {
+  border-radius: 28px;
+}
+
+
+/* ==========================================================================
+   Order summary (opens to show the items)
+   ========================================================================== */
+.summary {
+  max-width: 1100px;
+  margin: 0 auto clamp(24px, 3.4vw, 44px);
+}
+
+.summary__bar {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 6px 4px;
+  list-style: none;
+  cursor: pointer;
+  border-radius: var(--radius-s);
+}
+
+.summary__bar::-webkit-details-marker {
+  display: none;
+}
+
+.summary__title,
+.summary__total {
+  color: var(--camel);
+  font: 400 clamp(1.1rem, 2vw, 1.75rem)/1.2 var(--font-heading);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.summary__chevron {
+  width: 11px;
+  height: 11px;
+  margin: -4px 4px 0;
+  border: solid var(--camel);
+  border-width: 0 2px 2px 0;
+  transform: rotate(45deg);
+  transition: transform 0.25s var(--ease), margin 0.25s var(--ease);
+}
+
+.summary[open] .summary__chevron {
+  margin-top: 4px;
+  transform: rotate(225deg);
+}
+
+.summary__rule {
+  flex: 1;
+}
+
+.summary__bar:hover .summary__title,
+.summary__bar:hover .summary__total {
+  color: #fff4e3;
+}
+
+.summary__content {
+  display: grid;
+  gap: 16px;
+  margin-top: 20px;
+  padding: 20px 24px;
+  background: var(--roast);
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius-l);
+}
+
+.summary__items {
+  display: grid;
+  gap: 8px;
+}
+
+.summary__items li,
+.summary__totals div {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.summary__totals {
+  display: grid;
+  gap: 6px;
+  padding-top: 14px;
+  color: var(--camel-muted);
+  border-top: 1px solid var(--line-soft);
+}
+
+.summary__totals dd {
+  margin: 0;
+}
+
+.summary__totals-final {
+  color: var(--camel);
+  font-weight: 600;
+}
+
+
+/* ==========================================================================
+   Form
+   ========================================================================== */
+.checkout-form {
+  display: grid;
+  gap: clamp(26px, 3vw, 36px);
+  max-width: 920px;
+  margin-inline: auto;
+}
+
+.form-section {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.form-section__title {
+  margin-bottom: 14px;
+  padding: 0;
+  color: var(--camel);
+  font: 400 clamp(1.15rem, 1.8vw, 1.625rem)/1.2 var(--font-heading);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.form-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px 28px;
+}
+
+/* The shipping fields fill down the left column, then down the right (as in the wireframe) */
+.form-grid--columns {
+  grid-auto-flow: column;
+  grid-template-rows: repeat(4, auto);
+}
+
+.choice-row {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px clamp(14px, 2.2vw, 28px);
+}
+
+/* ---- Continue and return ------------------------------------------------- */
+.checkout-actions {
+  display: grid;
+  justify-items: center;
+  gap: 18px;
+  margin-top: 6px;
+}
+
+.checkout-actions__continue {
+  width: min(100%, 467px);
+  min-height: 56px;
+  font-size: clamp(0.9rem, 1.3vw, 1.1rem);
+}
+
+.back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 6px 8px;
+  font-size: 1.25rem;
+  text-decoration: none;
+}
+
+.back-link::before {
+  content: "";
+  width: 9px;
+  height: 9px;
+  border: solid currentColor;
+  border-width: 0 0 1.5px 1.5px;
+  transform: translateX(2px) rotate(45deg);
+  transition: transform 0.2s var(--ease);
+}
+
+.back-link:hover::before {
+  transform: translateX(-1px) rotate(45deg);
+}
+
+.back-link:hover {
+  text-decoration: underline;
+  text-decoration-color: var(--camel);
+}
+
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+@media (max-width: 899px) {
+  .form-grid,
+  .form-grid--columns {
+    grid-auto-flow: row;
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-rows: none;
+  }
+
+}
+
+@media (max-width: 559px) {
+  .choice-row {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 479px) {
+  .summary__rule {
+    display: none;
+  }
+
+  .summary__total {
+    margin-left: auto;
+  }
+}

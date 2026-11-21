@@ -1,0 +1,409 @@
+/* ==========================================================================
+   Draven - product page
+   ========================================================================== */
+
+
+/* ==========================================================================
+   Layout: gallery and related products on the left, details and reviews
+   on the right
+   ========================================================================== */
+.product {
+  padding-top: clamp(20px, 3vw, 34px);
+}
+
+.product__layout {
+  display: grid;
+  grid-template-columns: minmax(0, 763fr) minmax(0, 555fr);
+  align-items: start;
+  gap: clamp(20px, 2.4vw, 32px);
+}
+
+.product__col {
+  display: grid;
+  align-content: start;
+  gap: clamp(20px, 2.2vw, 28px);
+  min-width: 0;
+}
+
+
+/* ==========================================================================
+   Gallery
+   ========================================================================== */
+.gallery {
+  padding: 0;
+  overflow: hidden;
+  background: var(--boho);
+}
+
+.gallery__grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3px;
+  background: var(--roast);
+}
+
+.gallery__tile {
+  aspect-ratio: 381 / 168;
+  background: linear-gradient(160deg, #85724f 0%, var(--boho) 55%, #6f5e45 100%);
+}
+
+.gallery__image {
+  width: 100%;
+  height: 100%;
+}
+
+
+/* ==========================================================================
+   Related products
+   ========================================================================== */
+.related {
+  display: grid;
+  gap: 20px;
+}
+
+#related-carousel {
+  --carousel-gap: 31px;
+}
+
+#related-carousel .carousel__item {
+  width: clamp(200px, 20vw, 299px);
+}
+
+.related .tile {
+  aspect-ratio: 299 / 276;
+}
+
+.related__text {
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
+
+
+/* ==========================================================================
+   Product details
+   ========================================================================== */
+.details {
+  display: grid;
+  gap: 22px;
+}
+
+.details__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 16px;
+}
+
+.details__title {
+  font: 400 clamp(1.6rem, 2.4vw, 1.9rem)/1.15 var(--font-heading);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.details__text {
+  font-size: 1.15rem;
+  line-height: 1.5;
+}
+
+/* ---- Size and color options --------------------------------------------- */
+.options {
+  display: grid;
+  gap: 22px;
+}
+
+.options__group {
+  min-width: 0;
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
+.options__legend {
+  margin-bottom: 10px;
+  padding: 0;
+  color: var(--camel-muted);
+  font: 400 0.8rem/1 var(--font-heading);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.options__row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.option {
+  position: relative;
+  display: block;
+  cursor: pointer;
+}
+
+.option__box {
+  display: grid;
+  width: 46px;
+  height: 46px;
+  place-items: center;
+  color: var(--camel);
+  font: 400 0.85rem/1 var(--font-heading);
+  letter-spacing: 0.04em;
+  background: var(--roast);
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  transition: background-color 0.2s var(--ease), border-color 0.2s var(--ease), box-shadow 0.2s var(--ease), transform 0.2s var(--ease);
+}
+
+.option:hover .option__box {
+  border-color: var(--camel);
+  transform: translateY(-1px);
+}
+
+.option__input:checked + .option__box {
+  color: var(--camel-light);
+  background: var(--rubine);
+  border-color: var(--camel);
+  box-shadow: 0 0 16px var(--glow-soft);
+}
+
+.option__input:focus-visible + .option__box {
+  outline: 2px solid var(--camel);
+  outline-offset: 3px;
+}
+
+/* Colour swatches: smaller circles with a ring around the selected one */
+.option__box--color {
+  width: 36px;
+  height: 36px;
+  margin: 5px;
+  background: var(--swatch);
+  border-color: var(--line-soft);
+}
+
+.option__input:checked + .option__box--color {
+  background: var(--swatch);
+  box-shadow: 0 0 0 3px var(--tamarind), 0 0 0 5px var(--camel);
+}
+
+.swatch-1 { --swatch: #140407; }   /* Black */
+.swatch-2 { --swatch: #361319; }   /* Wine */
+.swatch-3 { --swatch: #6d3a3c; }   /* Rubine */
+.swatch-4 { --swatch: #8d3a3c; }   /* Crimson */
+.swatch-5 { --swatch: #7b694e; }   /* Boho */
+.swatch-6 { --swatch: #c6b39a; }   /* Camel */
+.swatch-7 { --swatch: #e6dac7; }   /* Bone */
+
+.details__checkout {
+  min-height: 54px;
+  margin-top: 4px;
+  border-radius: 999px;
+}
+
+
+/* ==========================================================================
+   Reviews
+   ========================================================================== */
+.reviews {
+  display: grid;
+  gap: 24px;
+}
+
+/* ---- Rating summary box -------------------------------------------------- */
+.rating {
+  position: relative;
+  display: grid;
+  justify-items: center;
+  gap: 4px;
+  padding: 24px 16px;
+  text-align: center;
+  background: var(--roast);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+}
+
+.rating::before {
+  content: "";
+  position: absolute;
+  inset: 4px;
+  border: 1px solid var(--line-soft);
+  border-radius: 6px;
+  pointer-events: none;
+}
+
+.rating .stars {
+  margin-bottom: 8px;
+}
+
+.rating__score {
+  font-size: 1.5rem;
+  line-height: 1.25;
+}
+
+.rating__count {
+  color: var(--camel-muted);
+  font-size: 1.15rem;
+}
+
+/* ---- Individual reviews -------------------------------------------------- */
+.review-list {
+  display: grid;
+  gap: 28px;
+}
+
+.review {
+  display: grid;
+  gap: 8px;
+}
+
+.review__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.review__title {
+  font: 400 1rem/1.3 var(--font-heading);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.review__date {
+  color: var(--camel-muted);
+  font-size: 0.95rem;
+  white-space: nowrap;
+}
+
+.review p {
+  font-size: 1.1rem;
+  line-height: 1.5;
+}
+
+/* A reply sits next to a round avatar */
+.review--reply {
+  grid-template-columns: auto minmax(0, 1fr);
+  align-items: start;
+  gap: 14px;
+}
+
+.review__avatar {
+  width: 38px;
+  height: 38px;
+  background: var(--boho);
+  border-radius: 50%;
+}
+
+.review__body {
+  display: grid;
+  gap: 8px;
+  min-width: 0;
+}
+
+/* Only shown on small screens */
+.review__media,
+.cta {
+  display: none;
+}
+
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+
+/* One column. The order follows the mobile wireframe:
+   gallery, details, related products, call to action, reviews */
+@media (max-width: 1099px) {
+  .product__layout {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 24px;
+  }
+
+  .product__col {
+    display: contents;
+  }
+
+  .gallery { order: 1; }
+  .details { order: 2; }
+  .related { order: 3; }
+  .cta     { order: 4; }
+  .reviews { order: 5; }
+
+  #related-carousel .carousel__item {
+    width: clamp(200px, 30vw, 299px);
+  }
+}
+
+@media (max-width: 719px) {
+  /* Gallery becomes one big picture you swipe through */
+  .gallery__grid {
+    display: flex;
+    gap: 0;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: thin;
+    scrollbar-color: var(--camel) transparent;
+  }
+
+  .gallery__tile {
+    flex: 0 0 100%;
+    scroll-snap-align: start;
+    aspect-ratio: 334 / 410;
+  }
+
+  /* Stars sit above the title */
+  .details__head {
+    flex-direction: column-reverse;
+    align-items: flex-start;
+  }
+
+  #related-carousel .carousel__item {
+    width: min(240px, 64vw);
+  }
+
+  .options__row {
+    gap: 4px;
+  }
+
+  .option__box--color {
+    width: 32px;
+    height: 32px;
+    margin: 4px;
+  }
+
+  /* Call to action panel */
+  .cta {
+    display: grid;
+    justify-items: end;
+    align-content: end;
+    gap: 16px;
+    min-height: min(72vw, 300px);
+    background: var(--rubine);
+  }
+
+  .cta .btn {
+    color: var(--camel-light);
+  }
+
+  .cta__title {
+    color: var(--camel-light);
+    font: 400 clamp(1.6rem, 7vw, 2rem)/1.1 var(--font-heading);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+  }
+
+  /* Pictures in a review */
+  .review__media {
+    display: flex;
+    gap: 12px;
+    order: -1;
+  }
+
+  .review__media .arch {
+    --arch-fill: var(--boho);
+    flex: none;
+    width: 116px;
+    height: 110px;
+  }
+}
