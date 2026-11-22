@@ -1,4 +1,4 @@
-/* ==========================================================================
+﻿/* ==========================================================================
    Draven - product page
    ========================================================================== */
 
@@ -30,26 +30,68 @@
    Gallery
    ========================================================================== */
 .gallery {
+  position: relative;
   padding: 0;
   overflow: hidden;
   background: var(--boho);
 }
 
-.gallery__grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 3px;
-  background: var(--roast);
+.gallery__nav {
+  position: absolute;
+  right: 0;
+  bottom: 14px;
+  left: 0;
+  z-index: 2;
+  margin: 0;
+}
+
+.gallery__counter {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  z-index: 2;
+  padding: 7px 10px;
+  border: 1px solid var(--line-soft);
+  border-radius: var(--radius-s);
+  color: var(--camel);
+  background: rgb(20 4 7 / 78%);
+  font: 600 0.95rem/1 var(--font-body);
+  letter-spacing: 0.04em;
+  pointer-events: none;
+}
+
+.gallery__carousel {
+  --carousel-gap: 0;
+  margin: 0;
+  padding: 0;
+  scrollbar-width: none;
+}
+
+.gallery__carousel::-webkit-scrollbar {
+  display: none;
 }
 
 .gallery__tile {
+  flex: 0 0 100%;
+  width: 100%;
   aspect-ratio: 381 / 168;
+  scroll-snap-align: start;
   background: linear-gradient(160deg, #85724f 0%, var(--boho) 55%, #6f5e45 100%);
 }
 
 .gallery__image {
   width: 100%;
   height: 100%;
+}
+
+.gallery__nav .carousel-nav__arrow--prev::before,
+.gallery__nav .carousel-nav__arrow--prev:hover::before {
+  transform: rotate(135deg);
+}
+
+.gallery__nav .carousel-nav__arrow--next::before,
+.gallery__nav .carousel-nav__arrow--next:hover::before {
+  transform: rotate(-45deg);
 }
 
 
@@ -336,19 +378,8 @@
 }
 
 @media (max-width: 719px) {
-  /* Gallery becomes one big picture you swipe through */
-  .gallery__grid {
-    display: flex;
-    gap: 0;
-    overflow-x: auto;
-    scroll-snap-type: x mandatory;
-    scrollbar-width: thin;
-    scrollbar-color: var(--camel) transparent;
-  }
-
+  /* Use a taller frame on small screens. */
   .gallery__tile {
-    flex: 0 0 100%;
-    scroll-snap-align: start;
     aspect-ratio: 334 / 410;
   }
 
@@ -407,3 +438,7 @@
     height: 110px;
   }
 }
+
+
+
+

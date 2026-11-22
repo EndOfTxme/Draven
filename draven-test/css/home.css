@@ -287,3 +287,17 @@
 
 
 
+
+
+/* Keep the homepage carousel chevrons centered inside all four circular buttons. */
+.carousel-nav .carousel-nav__arrow--prev::before,
+.carousel-nav .carousel-nav__arrow--prev:hover::before {
+  transform: rotate(135deg);
+}
+
+.carousel-nav .carousel-nav__arrow--next::before,
+.carousel-nav .carousel-nav__arrow--next:hover::before {
+  transform: rotate(-45deg);
+}
+
+

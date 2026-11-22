@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -16,6 +16,7 @@
 
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/product.css">
+  <script src="js/carousel-controls.js" defer></script>
 </head>
 
 <body class="page-product">
@@ -83,12 +84,19 @@
 
         <!-- ======================= GALLERY ======================= -->
         <section class="panel gallery" aria-label="Product gallery">
-          <ul class="gallery__grid">
-            <li class="gallery__tile"><div class="gallery__image" role="img" aria-label="Product image 1 (placeholder)"></div></li>
-            <li class="gallery__tile"><div class="gallery__image" role="img" aria-label="Product image 2 (placeholder)"></div></li>
-            <li class="gallery__tile"><div class="gallery__image" role="img" aria-label="Product image 3 (placeholder)"></div></li>
-            <li class="gallery__tile"><div class="gallery__image" role="img" aria-label="Product image 4 (placeholder)"></div></li>
-          </ul>
+          <output class="gallery__counter" aria-live="polite" aria-atomic="true">1/4</output>
+          <div class="carousel gallery__carousel" id="product-gallery" role="region" aria-label="Product images" tabindex="0">
+            <ul class="carousel__track gallery__track">
+              <li class="carousel__item gallery__tile" id="gallery-frame-1"><div class="gallery__image" role="img" aria-label="Product image 1 (placeholder)"></div></li>
+              <li class="carousel__item gallery__tile" id="gallery-frame-2"><div class="gallery__image" role="img" aria-label="Product image 2 (placeholder)"></div></li>
+              <li class="carousel__item gallery__tile" id="gallery-frame-3"><div class="gallery__image" role="img" aria-label="Product image 3 (placeholder)"></div></li>
+              <li class="carousel__item gallery__tile" id="gallery-frame-4"><div class="gallery__image" role="img" aria-label="Product image 4 (placeholder)"></div></li>
+            </ul>
+          </div>
+          <nav class="carousel-nav gallery__nav" aria-label="Product gallery: previous or next">
+            <a class="carousel-nav__arrow carousel-nav__arrow--prev" href="#gallery-frame-1" aria-label="Previous image"></a>
+            <a class="carousel-nav__arrow carousel-nav__arrow--next" href="#gallery-frame-4" aria-label="Next image"></a>
+          </nav>
         </section>
 
         <!-- ======================= RELATED PRODUCTS ======================= -->
@@ -284,3 +292,4 @@
 </body>
 
 </html>
+

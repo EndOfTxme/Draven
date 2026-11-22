@@ -1,4 +1,4 @@
-# Draven website (HTML + CSS only)
+﻿# Draven website (HTML + CSS only)
 
 Open `home.html` in a browser to start. The three pages link to each other.
 
@@ -25,11 +25,14 @@ It is responsive and follows the desktop and mobile wireframes:
 
 ## What works now, and what is left for later
 - Menu (hamburger), the expandable order summary, the radio choices and the floating field labels all work with CSS only.
-- The carousels scroll by swiping, trackpad, keyboard or the scrollbar. The arrows jump to the first or last card and the dots jump to a card.
+- The carousels scroll by swiping, trackpad, keyboard or the scrollbar. The home and product-gallery arrows smoothly advance one card at a time.
 - The **search** and the **checkout form** can be typed in but do nothing yet: each `<form>` has `onsubmit="return false"`. Remove that attribute when you connect them to a back end.
 - **Check out** on the product page sends the chosen size and color to `checkout.html` in the address (for example `checkout.html?size=l&color=boho`).
-- There is no JavaScript. A real carousel (arrows that move one card at a time) is the first thing that will need it.
+- A small script in js/carousel-controls.js makes the home and product-gallery arrows advance one card at a time. Search and checkout form submission still need a back end.
 
 ## Notes
 - Fonts (Cinzel, Cormorant Garamond, UnifrakturMaguntia) load from Google Fonts, so the pages need an internet connection to show the real fonts.
 - If you host the site, the server will look for `index.html` by default. Add one (or set `home.html` as the default page) when you publish.
+
+
+
