@@ -1,4 +1,4 @@
-/* ==========================================================================
+﻿/* ==========================================================================
    Draven - checkout page
    ========================================================================== */
 
@@ -8,7 +8,7 @@
 
 /* Bats flying above the top-right of the panel */
 .checkout__bats {
-  max-width: min(236px, 46%);
+  max-width: min(300px, 46%);
   height: auto;
   margin: 0 12% 10px auto;
 }
@@ -217,6 +217,13 @@
 
 }
 
+@media (max-width: 719px) {
+  .checkout__bats {
+    max-width: min(300px, 86vw);
+    margin: 0 0 10px auto;
+  }
+}
+
 @media (max-width: 559px) {
   .choice-row {
     grid-template-columns: minmax(0, 1fr);
@@ -232,3 +239,9 @@
     margin-left: auto;
   }
 }
+
+
+
+
+
+
