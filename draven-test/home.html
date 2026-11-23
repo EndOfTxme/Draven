@@ -17,6 +17,7 @@
   <link rel="stylesheet" href="css/base.css">
   <link rel="stylesheet" href="css/home.css">
   <script src="js/carousel-controls.js" defer></script>
+  <script src="js/search-panel.js" defer></script>
 </head>
 
 <body class="page-home">
@@ -52,16 +53,13 @@
       <a class="logo" href="home.html" aria-label="Draven, home">Draven</a>
 
       <div class="site-header__actions">
-        <form class="search" role="search" action="#" onsubmit="return false">
-          <label class="search__icon" for="site-search">
-            <span class="visually-hidden">Search</span>
+        <button class="search search__trigger" type="button" aria-label="Open search" aria-haspopup="dialog" aria-controls="search-overlay">
             <svg viewBox="0 0 24 30" fill="none" stroke="currentColor" aria-hidden="true" focusable="false">
               <circle cx="9.5" cy="9.5" r="7" stroke-width="3.2" />
               <path d="M14.8 15.3 22.2 26" stroke-width="3.6" stroke-linecap="round" />
             </svg>
-          </label>
-          <input class="search__input" id="site-search" type="search" name="q" placeholder="Search" autocomplete="off" spellcheck="false">
-        </form>
+          <span class="search__trigger-text">Search</span>
+        </button>
 
         <a class="cart-link" href="checkout.html" aria-label="Cart">
           <svg viewBox="0 0 43.68 36.65" aria-hidden="true" focusable="false">
@@ -74,6 +72,57 @@
 
     </div>
   </header>
+
+  <div class="search-overlay" id="search-overlay" hidden>
+    <section class="search-panel" role="dialog" aria-modal="true" aria-labelledby="search-panel-title">
+      <label class="search-panel__search">
+        <span class="visually-hidden">Search clothing</span>
+        <svg viewBox="0 0 24 30" fill="none" stroke="currentColor" aria-hidden="true"><circle cx="9.5" cy="9.5" r="7" stroke-width="3.2" /><path d="M14.8 15.3 22.2 26" stroke-width="3.6" stroke-linecap="round" /></svg>
+        <input class="search__input" id="site-search" type="search" placeholder="Search clothes" autocomplete="off" spellcheck="false">
+        <button class="search-panel__clear" type="button" aria-label="Clear search" hidden>×</button>
+      </label>
+      <div class="search-panel__top">
+        <h2 id="search-panel-title">Find your next look</h2>
+        <button class="search-panel__close" type="button" aria-label="Close search">×</button>
+      </div>
+      <div class="search-panel__tabs" role="tablist" aria-label="Clothing categories">
+        <button class="search-panel__tab is-active" type="button" role="tab" aria-selected="true" data-category="all">All</button>
+        <button class="search-panel__tab" type="button" role="tab" aria-selected="false" data-category="tops">Tops</button>
+        <button class="search-panel__tab" type="button" role="tab" aria-selected="false" data-category="bottoms">Bottoms</button>
+        <button class="search-panel__tab" type="button" role="tab" aria-selected="false" data-category="accessories">Accessories</button>
+      </div>
+      <div class="search-panel__suggestions">
+        <h3>Recent</h3>
+        <div class="search-panel__recent">
+          <button type="button" data-query="Lorem ipsum">Lorem ipsum</button>
+          <button type="button" data-query="Gothic clothing">Gothic clothing</button>
+        </div>
+        <h3>Trending</h3>
+        <div class="search-panel__trending">
+          <button type="button" data-query="Lorem ipsum">↗ Lorem ipsum</button>
+          <button type="button" data-query="Gothic clothing">↗ Gothic clothing</button>
+          <button type="button" data-query="Dark style">↗ Dark style</button>
+        </div>
+      </div>
+      <div class="search-panel__results" aria-live="polite" hidden>
+        <h3 class="search-panel__result-heading">Results</h3>
+        <a class="search-result" href="product.html" data-category="tops" data-search="lorem ipsum shirt gothic top">
+          <span class="search-result__image" aria-hidden="true"></span><span><strong>Lorem Ipsum Shirt</strong><small>Top · Lorem ipsum dolor sit amet</small></span>
+        </a>
+        <a class="search-result" href="product.html" data-category="bottoms" data-search="lorem ipsum trousers pants dark">
+          <span class="search-result__image" aria-hidden="true"></span><span><strong>Lorem Ipsum Trousers</strong><small>Bottoms · Lorem ipsum dolor sit amet</small></span>
+        </a>
+        <a class="search-result" href="product.html" data-category="accessories" data-search="lorem ipsum necklace accessory gothic">
+          <span class="search-result__image" aria-hidden="true"></span><span><strong>Lorem Ipsum Necklace</strong><small>Accessory · Lorem ipsum dolor sit amet</small></span>
+        </a>
+        <a class="search-result" href="product.html" data-category="tops" data-search="dark style lorem ipsum jacket coat">
+          <span class="search-result__image" aria-hidden="true"></span><span><strong>Lorem Ipsum Jacket</strong><small>Top · Lorem ipsum dolor sit amet</small></span>
+        </a>
+        <p class="search-panel__empty" hidden>No matches found.</p>
+      </div>
+      <p class="search-panel__hint">Choose a category or type to search · Esc to close</p>
+    </section>
+  </div>
 
 
   <main id="main">
