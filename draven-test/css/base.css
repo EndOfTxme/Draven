@@ -981,6 +981,19 @@ body.search-open {
   text-transform: uppercase;
 }
 
+/* Keep the social column title clearly visible with its icon links. */
+.site-footer h2#footer-socials {
+  display: block;
+  position: relative;
+  z-index: 3;
+  min-height: 1.3em;
+  margin: 0 0 8px;
+  color: var(--camel-light);
+  font-size: 1rem;
+  visibility: visible;
+  opacity: 1;
+}
+
 .footer-col__list {
   display: grid;
   justify-items: center;
@@ -1546,18 +1559,17 @@ body.search-open {
   position: absolute;
   bottom: 0;
   z-index: 0;
-  width: clamp(48px, 6vw, 84px);
+  width: clamp(110px, 14vw, 170px);
   height: auto;
   pointer-events: none;
 }
 
-.cobweb--left {
-  left: 0;
+.site-footer .cobweb {
+  z-index: 2;
 }
 
-.cobweb--right {
-  right: 0;
-  transform: scaleX(-1);
+.cobweb--left {
+  left: 0;
 }
 
 
